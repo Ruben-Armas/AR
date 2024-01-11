@@ -1,0 +1,17 @@
+Menu inicial
+	- Colocar objetos
+	- Buscar objetos
+
+Escena de juego	-	Colocar Objetos
+
+Escena de juego	-	Buscar Objetos
+	- Detectar click en la pantalla
+		- Sumar contador
+		- Destruir objeto
+
+Escena final
+	- Texto		- "Has ganado"
+	- Botón		- "Volver al menu"
+
+
+La cámara AR no funciona bien con los Canvas
