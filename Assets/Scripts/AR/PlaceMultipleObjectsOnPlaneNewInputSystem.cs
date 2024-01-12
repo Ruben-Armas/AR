@@ -67,12 +67,13 @@ public class PlaceMultipleObjectsOnPlaneNewInputSystem : MonoBehaviour {
     }
 
     void OnPress(Vector3 position) {
-        if (MaxObjects.instance.GetIsHideScene()) {
-            // Check if the raycast hit any trackables.
-            if (aRRaycastManager.Raycast(position, hits, TrackableType.PlaneWithinPolygon)) {
-                // Raycast hits are sorted by distance, so the first hit means the closest.
-                var hitPose = hits[0].pose;
+        // Check if the raycast hit any trackables.
+        if (aRRaycastManager.Raycast(position, hits, TrackableType.PlaneWithinPolygon)) {
+            // Raycast hits are sorted by distance, so the first hit means the closest.
+            var hitPose = hits[0].pose;
 
+
+            if (MaxObjects.instance.GetIsHideScene()) {
                 // Instantiated the prefab.
                 spawnedObject = Instantiate(placedPrefab, hitPose.position, hitPose.rotation);
                 //Guarda el objeto en la lista de objetos Singleton
