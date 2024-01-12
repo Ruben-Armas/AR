@@ -43,6 +43,7 @@ public class PlaceMultipleObjectsOnPlaneNewInputSystem : MonoBehaviour {
     ARRaycastManager aRRaycastManager;
     List<ARRaycastHit> hits = new List<ARRaycastHit>();
 
+
     private void Awake() {
         aRRaycastManager = GetComponent<ARRaycastManager>();
 
@@ -66,19 +67,29 @@ public class PlaceMultipleObjectsOnPlaneNewInputSystem : MonoBehaviour {
     }
 
     void OnPress(Vector3 position) {
-        // Check if the raycast hit any trackables.
-        if (aRRaycastManager.Raycast(position, hits, TrackableType.PlaneWithinPolygon))
-        {
-            // Raycast hits are sorted by distance, so the first hit means the closest.
-            var hitPose = hits[0].pose;
+        if (MaxObjects.instance.GetIsHideScene()) {
+            // Check if the raycast hit any trackables.
+            if (aRRaycastManager.Raycast(position, hits, TrackableType.PlaneWithinPolygon)) {
+                // Raycast hits are sorted by distance, so the first hit means the closest.
+                var hitPose = hits[0].pose;
 
-            // Instantiated the prefab.
-            spawnedObject = Instantiate(placedPrefab, hitPose.position, hitPose.rotation);
+                // Instantiated the prefab.
+                spawnedObject = Instantiate(placedPrefab, hitPose.position, hitPose.rotation);
+                //Guarda el objeto en la lista de objetos Singleton
+                MaxObjects.instance.AddObjectToList(spawnedObject);
 
-            // To make the spawned object always look at the camera. Delete if not needed.
-            Vector3 lookPos = Camera.main.transform.position - spawnedObject.transform.position;
-            lookPos.y = 0;
-            spawnedObject.transform.rotation = Quaternion.LookRotation(lookPos);
+                // To make the spawned object always look at the camera. Delete if not needed.
+                Vector3 lookPos = Camera.main.transform.position - spawnedObject.transform.position;
+                lookPos.y = 0;
+                spawnedObject.transform.rotation = Quaternion.LookRotation(lookPos);
+            }
+        }
+    }
+    //Vuelve al menu principal si se han añadido el máximo de objetos
+    private void Update() {
+        // Vuelve al menu si está en la escena de Colocar objetos y si ya ha colocado el máximo
+        if (MaxObjects.instance.GetIsHideScene() && MaxObjects.instance.HasMaxObjects()) {
+            SCManager.instance.LoadScene("MainTitle");
         }
     }
 }
