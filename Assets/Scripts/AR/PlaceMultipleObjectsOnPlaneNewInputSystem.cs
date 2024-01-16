@@ -67,6 +67,7 @@ public class PlaceMultipleObjectsOnPlaneNewInputSystem : MonoBehaviour {
     }
 
     void OnPress(Vector3 position) {
+        Debug.Log("Press");
         // Check if the raycast hit any trackables.
         if (aRRaycastManager.Raycast(position, hits, TrackableType.PlaneWithinPolygon)) {
             // Raycast hits are sorted by distance, so the first hit means the closest.
