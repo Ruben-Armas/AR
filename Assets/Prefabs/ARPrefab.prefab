@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 400771849177251430}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Key
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 52734205118459900}
   m_Layer: 0
   m_Name: ARPrefab
-  m_TagString: Untagged
+  m_TagString: Key
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

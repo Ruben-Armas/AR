@@ -7,7 +7,7 @@ public class MaxObjects : MonoBehaviour {
     public static MaxObjects instance;
 
     [SerializeField] int maxObjects;
-    List<GameObject> objects = new List<GameObject>();
+    [SerializeField] List<GameObject> currentObjects = new List<GameObject>();
     [SerializeField] bool isHideScene;
 
     private void Awake() {
@@ -23,15 +23,24 @@ public class MaxObjects : MonoBehaviour {
         // No destruimos el SceneManager aunque se cambie de escena
         DontDestroyOnLoad(gameObject);
     }
-    
+
     public int GetNumObjects() {
-        return objects.Count;
+        return currentObjects.Count;
+    }
+    public int GetMaxObjects() {
+        return maxObjects;
+    }
+    public int GetFoundObjects() {
+        return maxObjects - currentObjects.Count;
     }
     public void AddObjectToList(GameObject obj) {
-        objects.Add(obj);
+        currentObjects.Add(obj);
+    }
+    public void RemoveObjectToList(GameObject obj) {
+        currentObjects.Remove(obj);
     }
     public bool HasMaxObjects() {
-        if (objects.Count >= maxObjects)
+        if (currentObjects.Count >= maxObjects)
             return true;
         else
             return false;
