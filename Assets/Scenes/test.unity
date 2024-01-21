@@ -156,7 +156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxObjects: 3
   currentObjects: []
-  isHideScene: 1
+  isHideScene: 0
 --- !u!4 &28249827
 Transform:
   m_ObjectHideFlags: 0

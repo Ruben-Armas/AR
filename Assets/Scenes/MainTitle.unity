@@ -133,7 +133,6 @@ GameObject:
   m_Component:
   - component: {fileID: 28249827}
   - component: {fileID: 28249826}
-  - component: {fileID: 28249828}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -171,19 +170,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &28249828
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 28249825}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db6cbed547406ee459e8004d92942793, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectTag: Key
 --- !u!1 &41063670
 GameObject:
   m_ObjectHideFlags: 0
@@ -771,8 +757,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 28249828}
-        m_TargetAssemblyTypeName: DestroyObjectsByTag, Assembly-CSharp
+      - m_Target: {fileID: 1352768481}
+        m_TargetAssemblyTypeName: SCSelectorBtn, Assembly-CSharp
         m_MethodName: DestroyObjectsTag
         m_Mode: 5
         m_Arguments:
@@ -1038,7 +1024,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 128.2
+  m_fontSize: 128.15
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

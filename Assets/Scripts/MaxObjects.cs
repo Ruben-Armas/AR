@@ -8,7 +8,7 @@ public class MaxObjects : MonoBehaviour {
 
     [SerializeField] int maxObjects;
     [SerializeField] List<GameObject> currentObjects = new List<GameObject>();
-    [SerializeField] bool isHideScene;
+    [SerializeField] bool isHideScene = true;
 
     private void Awake() {
         // ----------------------------------------------------------------
@@ -38,6 +38,9 @@ public class MaxObjects : MonoBehaviour {
     }
     public void RemoveObjectToList(GameObject obj) {
         currentObjects.Remove(obj);
+    }
+    public void ClearObjectsList() {
+        currentObjects.Clear();
     }
     public bool HasMaxObjects() {
         if (currentObjects.Count >= maxObjects)

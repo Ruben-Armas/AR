@@ -45,6 +45,7 @@ public class PlaceMultipleObjectsOnPlaneNewInputSystem : MonoBehaviour {
 
 
     private void Awake() {
+
         aRRaycastManager = GetComponent<ARRaycastManager>();
 
         controls = new TouchControls();
@@ -54,6 +55,12 @@ public class PlaceMultipleObjectsOnPlaneNewInputSystem : MonoBehaviour {
                 OnPress(device.position.ReadValue());
             }
         };
+    }
+    private void Start() {
+        // Desactiva este script si no está en la escena de Hide/Esconder Objetos
+        if (MaxObjects.instance.GetIsHideScene())
+            enabled = true;
+        else enabled = false;
     }
 
     private void OnEnable()

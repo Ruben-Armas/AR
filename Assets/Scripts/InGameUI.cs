@@ -15,8 +15,6 @@ public class InGameUI : MonoBehaviour {
     }
 
     void Update() {
-        //lives.text = $"Lives: <color=#00e600><b>{gameManager.currentLives}</b>";
-        //ammo.text = $"Ammo: <color=#e60000><b>{gameManager.currentAmmo}</b>";
         total.text = $"Total: <color=#00e600><b>{MaxObjects.instance.GetMaxObjects()}</b>";
         found.text = $"Found: <color=#e60000><b>{MaxObjects.instance.GetFoundObjects()}</b>";
     }    
